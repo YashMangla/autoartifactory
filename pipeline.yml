@@ -1,0 +1,26 @@
+---
+resources:
+- name: git-resource
+  type: git
+  source:
+    uri: https://github.com/YashMangla/autoartifactory.git
+    branch: main
+    username: YashMangla
+    password: Clean@321
+
+
+
+jobs:
+- name: job-run-update
+  plan: 
+  - get: git-resource
+    trigger: true
+  - task: run-update
+      config:
+        platform: linux
+        image_resource:
+          type: docker-image
+          source: {repository: busybox}
+        run:
+          path: autoartifactory/update.sh
+          
