@@ -70,5 +70,6 @@ jobs:
         type: docker-image
         source: {repository: busybox}
       run:
-        path: autoartifactory/update.sh
+        path: echo
+        args: [hello world]
           
