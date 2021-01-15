@@ -5,8 +5,56 @@ resources:
   source:
     uri: https://github.com/YashMangla/autoartifactory.git
     branch: main
-    username: YashMangla
-    password: Clean@321
+    private_key: |
+      -----BEGIN OPENSSH PRIVATE KEY-----
+      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
+      -----END OPENSSH PRIVATE KEY-----
 
 
 
@@ -16,11 +64,11 @@ jobs:
   - get: git-resource
     trigger: true
   - task: run-update
-      config:
-        platform: linux
-        image_resource:
-          type: docker-image
-          source: {repository: busybox}
-        run:
-          path: autoartifactory/update.sh
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: busybox}
+      run:
+        path: autoartifactory/update.sh
           
