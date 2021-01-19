@@ -3,9 +3,16 @@ resources:
 - name: git-resource
   type: git
   source:
-    uri: (( git-uri ))
+    uri: https://github.com/YashMangla/autoartifactory.git
     branch: main
-    private_key: (( git-private-key ))
+    private_key: |
+      -----BEGIN OPENSSH PRIVATE KEY-----
+      b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
+      QyNTUxOQAAACBF37j8nC6NkR2yhOlIQpEtBK6CfDsD6EMcd2FlbGLWnQAAAJi6SREBukkR
+      AQAAAAtzc2gtZWQyNTUxOQAAACBF37j8nC6NkR2yhOlIQpEtBK6CfDsD6EMcd2FlbGLWnQ
+      AAAEBs8Mom2NoFb+O6py0ohxRQ/kEtKcOBHCqr9hjLbT7I3kXfuPycLo2RHbKE6UhCkS0E
+      roJ8OwPoQxx3YWVsYtadAAAAE3ltYW5nbGEzN0BnbWFpbC5jb20BAg==
+      -----END OPENSSH PRIVATE KEY-----
 
 
 
