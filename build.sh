@@ -15,7 +15,7 @@ commands_execute()
 	ls
 	pwd
 	ifconfig
-	ping 172.18.0.2 -t 4
+	ping -c 4 172.17.0.2 
 }
 
 commands_execute
