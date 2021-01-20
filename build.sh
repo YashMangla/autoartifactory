@@ -14,7 +14,7 @@ commands_execute()
 	install_dependencies
 	ls
 	pwd
-	ping 192.168.1.6
+	ping 192.168.1.6 -t 4
 }
 
 commands_execute

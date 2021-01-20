@@ -1,11 +1,13 @@
 ---
+
 resources:
 - name: git-resource
   type: git
   source:
-    uri: ((git-uri))
+    uri: https://github.com/YashMangla/autoartifactory.git
     branch: main
     private_key: ((git-private-key))
+
 
 
 jobs:
@@ -19,11 +21,22 @@ jobs:
       image_resource:
         type: docker-image
         source: {repository: ubuntu}
-      input: 
+      inputs: 
         - name: git-resource
-      output:
+      outputs:
         - name: distribution-repo
       run:
-        path: git-resource/build.sh
+        path: /bin/sh
+        args:
+        - -c
+        - |
+          ls /tmp/build/
+          pwd
+          ls
+          ls git-resource
+          ls distribution-repo
+          cd git-resource
+          chmod +x build.sh
+          ./build.sh
         
  
