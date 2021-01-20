@@ -8,9 +8,11 @@ install_dependencies(){
 }
 
 commands_execute(){
+	install_dependencies
 	ls
 	pwd
 	ping 192.168.1.6
 }
 
+commands_execute
 
