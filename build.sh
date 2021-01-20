@@ -1,5 +1,7 @@
 #!/bin/sh
-install_dependencies(){
+
+install_dependencies()
+{
 	apt-get -y update
 	apt-get install rsync -y
 	apt-get install git -y
@@ -7,7 +9,8 @@ install_dependencies(){
 	apt-get install iputils-ping -y
 }
 
-commands_execute(){
+commands_execute()
+{
 	install_dependencies
 	ls
 	pwd
