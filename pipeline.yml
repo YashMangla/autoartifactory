@@ -3,17 +3,9 @@ resources:
 - name: git-resource
   type: git
   source:
-    uri: https://github.com/YashMangla/autoartifactory.git
+    uri: ((git-uri))
     branch: main
-    private_key: |
-      -----BEGIN OPENSSH PRIVATE KEY-----
-      b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
-      QyNTUxOQAAACBF37j8nC6NkR2yhOlIQpEtBK6CfDsD6EMcd2FlbGLWnQAAAJi6SREBukkR
-      AQAAAAtzc2gtZWQyNTUxOQAAACBF37j8nC6NkR2yhOlIQpEtBK6CfDsD6EMcd2FlbGLWnQ
-      AAAEBs8Mom2NoFb+O6py0ohxRQ/kEtKcOBHCqr9hjLbT7I3kXfuPycLo2RHbKE6UhCkS0E
-      roJ8OwPoQxx3YWVsYtadAAAAE3ltYW5nbGEzN0BnbWFpbC5jb20BAg==
-      -----END OPENSSH PRIVATE KEY-----
-
+    private_key: ((git-private-key))
 
 
 jobs:
@@ -27,22 +19,11 @@ jobs:
       image_resource:
         type: docker-image
         source: {repository: ubuntu}
+      input: 
+        - name: git-resource
+      output:
+        - name: distribution-repo
       run:
-        path: /bin/sh
-        args:
-        - -c
-        - |
-          apt-get -y update
-          apt-get install git -y
-          apt-get install curl -y
-          apt-get install iputils-ping -y
-          git init
-          git clone https://github.com/YashMangla/autoartifactory.git
-          cd autoartifactory
-          pwd
-          ls
-          ./update.sh
-          
-
-
-          
+        path: git-resource/build.sh
+        
+ 
