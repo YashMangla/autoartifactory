@@ -59,14 +59,14 @@ checkout_new_data(){
 			echo "$i" >> changedfiles
 			echo "resrtricted files: $resrtric_file"
 			current_path=$(pwd)"/"$i
-			echo "$current_path"
+			echo "1st if block: $current_path"
 			tmp1=$(echo "$current_path" | sed "s|\(.*\)/.*|\1|")
 			echo $tmp1
 			if [ -s "$current_path" ]
 			then 
-				echo $current_path
+				echo "2nd if block: $current_path"
 				tmp2="$tmp1/run.sh"
-				echo $tmp2
+				echo "2nd if block: $tmp2"
 				check_empty_files $tmp2
 			else
 				echo "this is 2nd else block"
