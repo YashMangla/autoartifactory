@@ -8,6 +8,7 @@ git-private-key: |
   roJ8OwPoQxx3YWVsYtadAAAAE3ltYW5nbGEzN0BnbWFpbC5jb20BAg==
   -----END OPENSSH PRIVATE KEY-----
 git-uri: https://github.com/YashMangla/autoartifactory.git
-artifactory-server: http://localhost:8082/artifactory/
+artifactory-server: http://192.168.1.6:8081/artifactory
 artifactory-user: admin
 artifactory-pwd: admin
+artifactory-api: AKCp8igr97SHKufgBYuac1TRqQtrPvCMLi6LvWzaPJhubnhk5nacuZ1aYUeq6KznfStjFVV9b

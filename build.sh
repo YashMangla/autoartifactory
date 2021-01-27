@@ -7,6 +7,7 @@ install_dependencies()
 	apt-get install git -y
 	apt-get install curl -y
 	apt-get install iputils-ping -y
+	apt-get install git -y
 }
 
 commands_execute()

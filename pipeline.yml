@@ -1,4 +1,10 @@
 ---
+resource_types:
+- name: generic-artifact
+  type: docker-image
+  source:
+    repository: troykinsella/concourse-artifactory-resource
+    tag: latest
 
 resources:
 - name: git-resource
@@ -7,6 +13,14 @@ resources:
     uri: https://github.com/YashMangla/autoartifactory.git
     branch: main
     private_key: ((git-private-key))
+
+- name: artifactory-repo
+  type: generic-artifact
+  source: 
+    url: ((artifactory-server))
+    repository: "autoartifactory"
+    api_key: ((artifactory-api))
+    path: distribution-repo
 
 
 
@@ -20,7 +34,7 @@ jobs:
       platform: linux
       image_resource:
         type: docker-image
-        source: {repository: ubuntu}
+        source: {repository: ymangla/concourse-ubuntu}
       inputs: 
         - name: git-resource
       outputs:
@@ -28,15 +42,27 @@ jobs:
       run:
         path: /bin/sh
         args:
-        - -c
+        - -cx
         - |
           ls /tmp/build/
           pwd
           ls
           ls git-resource
           ls distribution-repo
-          cd git-resource
-          chmod +x build.sh
-          ./build.sh
-        
- 
+          mkdir -p distribution-repo/test/test2
+          echo "this is text file" > distribution-repo/test/test2/testing2.txt
+          ls distribution-repo
+          ls distribution-repo/test
+          echo "test/test2/testing2.txt" > distribution-repo/changedfiles
+          cat distribution-repo/changedfiles
+
+  - load_var: changedfiles
+    file: distribution-repo/changedfiles
+
+                  
+  - put: artifactory-repo
+    params: 
+      files: distribution-repo
+      glob: ((.:changedfiles))
+    
+      
