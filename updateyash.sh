@@ -34,7 +34,7 @@ run_file_task()
 	myvar=$(echo "$tmp1" | awk -F "," '{ print $1, $2, $3, $4, $5 } ')
 	set -- $myvar
 	#echo "$4"
-	echo "$tmphost, $3, $4, $2, $5" >> sample1.csv
+	echo "$tmphost, $3, $4, $2, $5" >> sample.csv
 	#echo "$tmp1" >> sample1.csv
 }
 
@@ -48,7 +48,7 @@ checkout_new_data(){
 	#git status
 	#echo "site,dc,hostType,hostOs,tool" > sample1.csv
 	touch changedfiles
-	echo "HOST,hostType,hostOS,DC,tool" > sample1.csv
+	echo "HOST,hostType,hostOS,DC,tool" > sample.csv
 	for i in $folderstr
 	do 
 		# get all the list of changed files

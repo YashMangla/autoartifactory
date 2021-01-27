@@ -49,15 +49,23 @@ jobs:
           ls
           ls git-resource
           ls distribution-repo
-          mkdir -p distribution-repo/test/test2
-          echo "this is text file" > distribution-repo/test/test2/testing2.txt
-          ls distribution-repo
-          ls distribution-repo/test
-          echo "test/test2/testing2.txt" > distribution-repo/changedfiles
-          cat distribution-repo/changedfiles
+          git init
+          git clone https://github.com/YashMangla/autoartifactory.git
+          cd autoartifactory
+          pwd
+          ls
+          ./updateyash.sh
+          cat changedfiles
+          cat sample.csv
+          #mkdir -p distribution-repo/test/test2
+          #echo "this is text file" > distribution-repo/test/test2/testing2.txt
+          #ls distribution-repo
+          #ls distribution-repo/test
+          #echo "test/test2/testing2.txt" > distribution-repo/changedfiles
+          #cat distribution-repo/changedfiles
 
   - load_var: changedfiles
-    file: distribution-repo/changedfiles
+    file: autoartifactory/changedfiles
 
                   
   - put: artifactory-repo
